@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        使用c名称空间进行参数赋值
+        1. 导入c命名空间：<beans xmlns:c="http://www.springframework.org/schema/c"></beans>
+        2. 使用c命名空间配置构造函数的参数
+        3. c命名空间无法装配集合
+     -->
+    <!--
+       p命名空间注入参数,
+       1. 导入p命名空间: <beans xmlns:p="http://www.springframework.org/schema/p"></beans>
+       2. 使用p:属性完整注入
+           |-值类型: p:属性名="值"
+           |-对象类型: p:属性名-ref="bean名称"
+    -->
+    <bean id="role2" class="indi.yangwj.spring.bean.Role" />
+
+    <bean id="user6" class="indi.yangwj.spring.bean.User"
+            c:password="passwd"
+            c:username="asdasdasdasd"
+            p:map="#{{}"
+            p:array="#{{1,2,3,4}}" />
+</beans>

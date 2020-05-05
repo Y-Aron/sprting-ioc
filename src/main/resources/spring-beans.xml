@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean的类名唯一，即IOC容器中不允许出现重复的类 -->
+
+    <!-- 无参构造函数创建对象 -->
+    <!-- bean参数介绍:
+        1. scope:
+            prototype: 多例对象, 对象在IOC容器之前就已经创建
+            singleton: 单例对象(默认值)，对象在使用时才创建
+        2. lazy-init:
+            true: 对象在使用时创建，只对单例对象有效(scope=singleton)
+            false: 对象在IOC容器之前就已经创建 默认值
+        3. init-method: 创建对象时初始化方法
+        4. destroy-method: 执行ClassPathXmlApplicationContext.close()时执行的方法。注意当scope=prototype时，是不会执行destroy-method
+    -->
+    <bean id="user" class="indi.yangwj.spring.bean.User" />
+</beans>
+<!--spring-beans.xml-->

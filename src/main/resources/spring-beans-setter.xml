@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="role1" class="indi.yangwj.spring.bean.Role" />
+    <bean id="user5" class="indi.yangwj.spring.bean.User" >
+        <!--普通值类型-->
+        <property name="password" value="密码"/>
+        <!--特殊字符-->
+        <property name="username">
+            <value><![CDATA[测试]]></value>
+        </property>
+        <!--引用类型-->
+        <property name="role" ref="role1" />
+    </bean>
+</beans>

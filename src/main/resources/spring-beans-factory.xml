@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 工厂的非静态方法创建对象 -->
+
+    <!-- 创建工厂类的bean -->
+    <bean id="userFactory" class="indi.yangwj.spring.factory.UserFactory"/>
+
+    <!-- factory-bean：工厂类 factory-method: 非静态方法 -->
+    <bean id="user3" factory-bean="userFactory" factory-method="createUser"/>
+
+</beans>

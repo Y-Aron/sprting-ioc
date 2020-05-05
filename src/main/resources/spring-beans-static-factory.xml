@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 工厂的静态方法创建对象，class: 工厂类，factory-method: 静态方法 -->
+    <bean id="user2" class="indi.yangwj.spring.factory.UserFactory" factory-method="createStaticUser" />
+
+</beans>

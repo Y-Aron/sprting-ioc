@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 有参数构造方法注入 -->
+    <bean id="role" class="indi.yangwj.spring.bean.Role" />
+    <bean id="user4" class="indi.yangwj.spring.bean.User" >
+        <!-- index: 参数在构造方法上的位置 -->
+        <!-- name: 参数名称 -->
+        <!-- type: 参数类型 -->
+        <!-- value: 参数值 -->
+        <constructor-arg index="0" name="username" type="java.lang.String" value="user" />
+        <constructor-arg index="1" name="password" type="java.lang.String" value="passwd" />
+        <!-- 当构造函数的值是一个对象，而不是一个普通类型的值时，使用ref属性关联bean对象 -->
+        <constructor-arg index="2" name="role" type="indi.yangwj.spring.bean.Role" ref="role" />
+    </bean>
+</beans>

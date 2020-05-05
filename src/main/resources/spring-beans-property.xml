@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="user7" class="indi.yangwj.spring.bean.User" >
+
+        <!-- 使用<array></array>或<list></list>标签注入数组 -->
+        <property name="array">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+
+        <!--使用<list></list>注入 `java.util.List`-->
+        <property name="interests" >
+            <list>
+                <value>list aaa</value>
+                <value>list bbb</value>
+                <value>list ccc</value>
+            </list>
+        </property>
+        <!--使用<set></set>注入 `java.util.Set`-->
+        <!-- 装配 Set -->
+        <property name="set" >
+            <set>
+                <value>set 123</value>
+                <value>set 456</value>
+                <value>set 789</value>
+            </set>
+        </property>
+
+        <!-- 使用<map></map>注入 `java.util.Map`-->
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1" />
+                <entry key="key2" value="value2" />
+                <entry key="key3" value="value3" />
+            </map>
+        </property>
+        <!--使用<props></props>注入 `java.util.Properties`-->
+        <!-- 装配 Properties -->
+        <property name="properties">
+            <props>
+                <prop key="propKet1">propValue1</prop>
+                <prop key="propKet2">propValue2</prop>
+                <prop key="propKet3">propValue3</prop>
+            </props>
+        </property>
+        <!-- 通过util命名空间配置集合类型的bean -->
+        <property name="roleIds" ref="roleIds" />
+    </bean>
+
+    <!--
+       util命名空间定义
+       1. 导入util命名空间: <beans xmlns:util="http://www.springframework.org/schema/util"
+               xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"></beans>
+       2. Array/List/Set/Map/Properties等,用法与上述相同
+    -->
+    <util:list id="roleIds" value-type="java.lang.Integer">
+        <value>1</value>
+        <value>2</value>
+    </util:list>
+
+</beans>
